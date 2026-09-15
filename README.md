@@ -1,16 +1,34 @@
-# React + Vite
+# Secure Question Paper System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete local demonstration of the supplied flow: OTP login, role-controlled submission, encrypted private storage, SHA-256 integrity checks, officer approval, controlled time-window release, and audit logging.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use two terminals from the project folder.
 
-## React Compiler
+```powershell
+cd backend
+python -m pip install -r requirements.txt
+uvicorn main:app --reload
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```powershell
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Open the Vite address, normally `http://localhost:5173`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Demo accounts
+
+| Role | Email | Password |
+|---|---|---|
+| Question Setter | setter@example.edu | Setter@123 |
+| Examination Officer | officer@example.edu | Officer@123 |
+| Examination Centre | centre@example.edu | Centre@123 |
+
+Development mode displays the OTP on the login screen. Set `DEV_MODE=false` in a deployment and replace this with an approved email/SMS provider. Set unique `APP_SECRET` and `FERNET_KEY` variables before deployment.
+
+## Security boundary
+
+The delivered project deliberately excludes Firebase keys, Supabase keys, `.env` files, and the service-account credential found in the original archive. Generated encrypted papers and audit data reside in `backend/data/`, which Git ignores.
