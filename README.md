@@ -82,7 +82,7 @@ Install the following software:
 
 ## Installation
 
-### 1. Clone or extract the project
+### Clone or extract the project
 
 cd secure-question-paper-system
 
@@ -98,6 +98,30 @@ npm install
 npm run dev
 
 Open the Vite address, normally `http://localhost:5173`.
+
+## Deployment in Render
+
+The Secure Question Paper System is deployed using Render.
+
+### Live Website
+
+Access the deployed application here:
+
+https://secure-question-paper-system-web.onrender.com/
+
+### Deployment Platform
+
+Platform: Render  
+
+Frontend: React + Vite  
+
+Backend: FastAPI + Python  
+
+Authentication: Firebase Authentication
+
+Database: Cloud Firestore
+
+File Storage: Supabase
 
 ## Demo accounts
 
