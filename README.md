@@ -10,28 +10,17 @@ The application uses Firebase Authentication for user login, Firestore for user 
 
 ## System workflow
 
-Question Setter
-      ↓
-Firebase Authentication
-      ↓
-PDF Upload
-      ↓
-SHA-256 Hash Generation
-      ↓
-Fernet Encryption
-      ↓
-Private Supabase Storage
-      ↓
-Firestore Metadata and Audit Log
-      ↓
-Examination Officer Approval
-      ↓
-Controlled Release Scheduling
-      ↓
-Examination Centre Access During Exam Window
-      ↓
-Decryption and Integrity Check
-      ↓
+Question Setter -> 
+Firebase Authentication -> 
+PDF Upload -> 
+SHA-256 Hash Generation -> 
+Fernet Encryption -> 
+Private Supabase Storage -> 
+Firestore Metadata and Audit Log -> 
+Examination Officer Approval -> 
+Controlled Release Scheduling -> 
+Examination Centre Access During Exam Window -> 
+Decryption and Integrity Check -> 
 PDF Download
 
 ## Features
