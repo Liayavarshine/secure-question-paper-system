@@ -102,8 +102,11 @@ Open the Vite address, normally `http://localhost:5173`.
 ## Demo accounts
 
 | Role | Email | Password |
+
 | Question Setter | question.setter@gmail.com | questionsetter |
+
 | Examination Officer | officer@gmail.com | officer |
+
 | Examination Centre | centre@gmail.com | centre |
 
 Development mode displays the OTP on the login screen. Set `DEV_MODE=false` in a deployment and replace this with an approved email/SMS provider. Set unique `APP_SECRET` and `FERNET_KEY` variables before deployment.
@@ -119,6 +122,7 @@ The delivered project deliberately excludes Firebase keys, Supabase keys, `.env`
 #### Sample Input
 
 Email: question.setter@gmail.com
+
 Password: (password)
 
 #### Sample Output
@@ -126,6 +130,7 @@ Password: (password)
 Login successful.
 
 Role: QUESTION_SETTER
+
 Dashboard: Question Setter Dashboard
 
 ### 2. Upload Question Paper
@@ -133,28 +138,27 @@ Dashboard: Question Setter Dashboard
 #### Sample Input
 
 Examination Name: End semester Examination
+
 Subject Name: Cloud computing
+
 Examination Date: 2026-10-08
+
 Examination Time: 10:00
+
 Question Paper File: Cloud_computing.pdf
+
 File Type: PDF
 
 #### Sample Output
 
 The system performs these actions:
 
-PDF validated
-↓
-SHA-256 hash generated
-↓
-PDF encrypted
-↓
-Encrypted file stored in private Supabase bucket
-↓
-Paper metadata stored in Firestore
-↓
-Audit log created
-↓
+PDF validated -> 
+SHA-256 hash generated -> 
+PDF encrypted -> 
+Encrypted file stored in private Supabase bucket -> 
+Paper metadata stored in Firestore -> 
+Audit log created -> 
 Paper status: PENDING_APPROVAL
 
 ### 3. Examination Officer Approval
@@ -162,10 +166,13 @@ Paper status: PENDING_APPROVAL
 #### Sample Input
 
 Email: officer@gmail.com
+
 Password: (password)
 
 Officer Account Role: EXAMINATION_OFFICER
+
 Paper ID: 9a68d0d2-fec0-4e81-9327-34dd0cbf6f3e
+
 Action: Approve
 
 #### Sample Output
@@ -179,7 +186,9 @@ APPROVED
 #### Sample Input
 
 Paper ID: 9a68d0d2-fec0-4e81-9327-34dd0cbf6f3e
+
 Release Time: 2026-10-15T09:45
+
 Release Window: 120 minutes
 
 #### Sample Output
@@ -193,16 +202,21 @@ SCHEDULED
 #### Sample Input
 
 Email: centre@gmail.com
+
 Password: (password)
 
 Centre Account Role: EXAMINATION_CENTRE
+
 Paper ID: 9a68d0d2-fec0-4e81-9327-34dd0cbf6f3e
+
 Current Time: 2026-10-15T10:00
 
 #### Sample Output
 
 SHA-256 integrity verification successful.
+
 Question paper decrypted successfully.
+
 PDF download started: Cloud_computing.pdf
 
 ### 6. Unauthorised Download Attempt
@@ -210,7 +224,9 @@ PDF download started: Cloud_computing.pdf
 #### Sample Input
 
 Centre Account Role: EXAMINATION_CENTRE
+
 Paper ID: 9a68d0d2-fec0-4e81-9327-34dd0cbf6f3e
+
 Current Time: 2026-10-15T08:30:00+05:30
 
 #### Sample Output
